@@ -1,0 +1,21 @@
+import pandas as pd
+
+# Load the provided Excel file to prepare the data for the map visualization
+file_path = 'E:\placements\documents\NEU\Fall 2023-Sem1\Computation and Vis\Nutrition_Physical_Activity\Graph 3\Graph3.xlsx'
+data_graph = pd.read_excel(file_path)
+
+# Display the first few rows to understand the structure of the data
+data_graph.head()
+
+# Grouping the data by 'LocationDesc' (state), 'YearStart', and 'Region' to calculate the average 'Data_Value' for each state and year
+average_data_values = data_graph.groupby(['LocationDesc', 'YearStart', 'Region'])['Data_Value'].mean().reset_index()
+
+# Renaming columns to fit the mapping tool requirements
+average_data_values.rename(columns={'LocationDesc': 'State', 'YearStart': 'Year', 'Data_Value': 'Average Data Value'}, inplace=True)
+
+# Ensuring that 'State' column has the full state names as required for mapping in Datawrapper
+average_data_values.head()
+
+# Saving the prepared data to a new Excel file for upload to Datawrapper
+prepared_file_path = 'E:\placements\documents\NEU\Fall 2023-Sem1\Computation and Vis\Nutrition_Physical_Activity\Graph 3\Prepared_Data_for_Map_Visualization.xlsx'
+average_data_values.to_excel(prepared_file_path, index=False)

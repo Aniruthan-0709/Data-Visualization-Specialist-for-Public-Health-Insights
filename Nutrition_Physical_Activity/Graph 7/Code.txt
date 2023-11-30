@@ -1,0 +1,19 @@
+import pandas as pd
+
+# Read the Excel file
+df = pd.read_excel(r"E:\placements\documents\NEU\Fall 2023-Sem1\Computation and Vis\Nutrition_Physical_Activity\Modified_Nutrition_Physical_Activity_Data.xlsx", "Main")
+
+# Filter the DataFrame for rows where StratificationCategory1 is 'Age (years)'
+df_physical = df[df['Class'] == "Physical Activity"]
+df_obesity = df[df['Class'] =="Obesity / Weight Status"]
+
+df_group1=df_physical.groupby(['YearStart','StratificationCategory1','Stratification1'])['Data_Value'].mean().reset_index()
+
+
+# Group by StratificationCategory1 and Stratification1, then calculate the mean of Data_Value
+df_group2 = df_obesity.groupby(['YearStart','StratificationCategory1','Stratification1'])['Data_Value'].mean().reset_index
+
+print(df_group1)
+print(df_group2)
+
+df_group2.to_excel(r"E:\placements\documents\NEU\Fall 2023-Sem1\Computation and Vis\Nutrition_Physical_Activity\Age.xlsx",index=False)

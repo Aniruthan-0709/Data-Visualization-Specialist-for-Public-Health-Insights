@@ -1,0 +1,27 @@
+Topic,(All),,,,
+LocationDesc,National,,,,
+,,,,,
+Average of Data_Value,Column Labels,,,,
+Row Labels,Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination),Percent of adults who achieve at least 150 minutes a week of moderate-intensity aerobic physical activity or 75 minutes a week of vigorous-intensity aerobic physical activity and engage in muscle-strengthening activities on 2 or more days a week,Percent of adults who achieve at least 300 minutes a week of moderate-intensity aerobic physical activity or 150 minutes a week of vigorous-intensity aerobic activity (or an equivalent combination),Percent of adults who engage in muscle-strengthening activities on 2 or more days a week,Grand Total
+2011,50.95357143,20.86785714,31.49285714,29.99642857,33.32767857
+2013,49.44285714,20.28214286,30.84642857,30.275,32.71160714
+2015,50.51785714,21.05714286,31.23571429,31.25357143,33.51607143
+2017,49.29285714,20.60357143,30.41071429,30.99285714,32.825
+2019,50.37857143,22.75,31.48214286,35.59642857,35.05178571
+Grand Total,50.11714286,21.11214286,31.09357143,31.62285714,33.48642857
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+Topic,(All),,,,
+LocationDesc,National,,,,
+Question,(Multiple Items),,,,
+,,,,,
+Row Labels,Average of Data_Value,,,,
+2011,33.32767857,,,,
+2013,32.71160714,,,,
+2015,33.51607143,,,,
+2017,32.825,,,,
+2019,35.05178571,,,,
+Grand Total,33.48642857,,,,

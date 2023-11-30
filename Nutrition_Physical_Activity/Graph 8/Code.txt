@@ -1,0 +1,48 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+# Load the dataset
+file_path = '/mnt/data/Final_coefficient.xlsx'
+activity_obesity_data = pd.read_excel(file_path)
+
+# Filter the dataset to include only national data
+national_data = activity_obesity_data[activity_obesity_data['LocationDesc'] == 'National']
+
+# Pivot the data to have 'YearStart' as index, 'Question' as columns, and 'Data_Value' as values
+pivot_national_data = national_data.pivot_table(values='Data_Value', index='YearStart', columns='Question')
+
+# Calculate the correlation matrix for the national level data
+correlation_national = pivot_national_data.corr()
+
+# Print the correlation matrix
+print(correlation_national)
+
+
+# Map the full question text to the simplified labels
+question_label_mapping = {
+    'Percent of adults aged 18 years and older who have obesity': 'Obesity',
+    'Percent of adults aged 18 years and older who have an overweight classification': 'Overweight'
+    # ... include other mappings if necessary
+}
+
+# Update the column names of the pivot table with the simplified labels
+pivot_national_data_renamed = pivot_national_data.rename(columns=question_label_mapping)
+
+# Draw the heatmap with the updated labels
+plt.figure(figsize=(12, 10))
+
+# Generate a custom diverging colormap
+cmap = sns.diverging_palette(220, 10, as_cmap=True)
+
+# Draw the heatmap with the mask and correct aspect ratio
+sns.heatmap(correlation_national, cmap=cmap, vmax=1, center=0,
+            square=True, linewidths=.5, cbar_kws={"shrink": .5}, annot=True)
+
+# Improve the layout to accommodate the labels, and display the plot
+plt.xticks(rotation=45, ha='right')
+plt.yticks(rotation=0)
+plt.tight_layout()
+plt.show()
+
